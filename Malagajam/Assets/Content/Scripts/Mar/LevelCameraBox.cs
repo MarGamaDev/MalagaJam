@@ -5,15 +5,12 @@ using UnityEngine;
 public class LevelCameraBox : MonoBehaviour
 {
     [SerializeField] private Transform _minHandle, _maxHandle;
+    private Vector2 _minCameraBounds, _maxCameraBounds;
+    public Vector2 MinCameraBounds => _minCameraBounds;
+    public Vector2 MaxCameraBounds => _maxCameraBounds;
 
-    public Vector3 MinCameraBounds => _minHandle.position;
-    public Vector3 MaxCameraBounds => _maxHandle.position;
-
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.cyan;
-        Vector3 boxSize = new Vector3(_maxHandle.position.x - _minHandle.position.x, _maxHandle.position.y - _minHandle.position.y, _maxHandle.position.z - _minHandle.position.z);
-        Vector3 boxCenter = new Vector3(_minHandle.position.x + ((boxSize.x) / 2), _minHandle.position.y + ((boxSize.y) / 2), _minHandle.position.z + ((boxSize.z) / 2));
-        Gizmos.DrawWireCube(boxCenter, boxSize);
+
     }
 }
