@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     LayerMask groundLayer;
 
+    private bool isGrounded;
+
     private Vector3 direction;
 
     private Rigidbody rb;
