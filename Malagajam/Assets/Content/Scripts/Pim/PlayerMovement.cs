@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     //Groundcheck
     [SerializeField]
     LayerMask groundLayer;
-    bool isGrounded;
+    bool isGrounded = true;
 
 
 
@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        readyToJump = true;
     }
 
     private void Update()
@@ -45,14 +44,12 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         GroundCheck();
-
     }
 
     #region Movement Methods
     void Move()
     {
         transform.Translate(direction * movementSpeed / multiplier);
-        //transform.Translate(transform.right * PlayerDirX * speed * Time.deltaTime);
     }
     void GetInput()
     {
@@ -66,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
     {
         readyToJump = false;
         rb.AddForce(direction.x, jumpForce * multiplier, direction.z);
-        Invoke("ReadyToJump", 0.5f);
+        Invoke("ReadyToJump", 0.1f);
     }
     void ReadyToJump()
     {
