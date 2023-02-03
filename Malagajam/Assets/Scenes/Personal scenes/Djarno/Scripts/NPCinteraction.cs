@@ -10,6 +10,8 @@ public class NPCinteraction : MonoBehaviour
     public GameObject CamNPC1;
     public GameObject CamNPC2;
 
+    public LayerMask playerMask;
+
     private void Start()
     {
         MainCamera.SetActive(true);
@@ -18,22 +20,25 @@ public class NPCinteraction : MonoBehaviour
         CamNPC2.SetActive(false);
     }
 
-    void OnTriggerStay(Collider other)
+    private void Update()
     {
-        if (other.CompareTag("Player"))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Player Detected");
+            AttemptInteract();
+        }
+    }
 
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                MainCamera.SetActive(false);
-                CamNPC0.SetActive(true);
-                CamNPC1.SetActive(false);
-                CamNPC2.SetActive(false);
+    void AttemptInteract()
+    {
+        if (Physics.OverlapSphere(transform.position, 2, playerMask).Length > 0)
+        {
+            MainCamera.SetActive(false);
+            CamNPC0.SetActive(true);
+            CamNPC1.SetActive(false);
+            CamNPC2.SetActive(false);
 
-                Debug.Log("Turned MainCam OFF");
-                Debug.Log("Turned CamNPC0 ON");
-            }
+            Debug.Log("Turned MainCam OFF");
+            Debug.Log("Turned CamNPC0 ON");
         }
     }
 }
