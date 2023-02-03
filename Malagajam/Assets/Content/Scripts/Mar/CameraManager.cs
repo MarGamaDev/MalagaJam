@@ -40,7 +40,7 @@ public class CameraManager : MonoBehaviour
         while (timer < 1)
         {
             _fadeImage.color = new Color(_fadeImage.color.r, _fadeImage.color.g, _fadeImage.color.b, timer);
-            timer += Time.unscaledDeltaTime;
+            timer += Time.unscaledDeltaTime / _timeToFadeInSeconds;
             Mathf.Clamp01(timer);
             yield return null;
         }
@@ -51,7 +51,7 @@ public class CameraManager : MonoBehaviour
         while (timer > 0)
         {
             _fadeImage.color = new Color(_fadeImage.color.r, _fadeImage.color.g, _fadeImage.color.b, timer);
-            timer -= Time.unscaledDeltaTime;
+            timer -= Time.unscaledDeltaTime / _timeToFadeInSeconds;
             Mathf.Clamp01(timer);
             yield return null;
         }
