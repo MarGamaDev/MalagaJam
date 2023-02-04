@@ -7,8 +7,6 @@ public class NPCinteraction : MonoBehaviour
 {
     public GameObject MainCamera;
     public GameObject CamNPC0;
-    public GameObject CamNPC1;
-    public GameObject CamNPC2;
 
     public LayerMask playerMask;
 
@@ -16,8 +14,6 @@ public class NPCinteraction : MonoBehaviour
     {
         MainCamera.SetActive(true);
         CamNPC0.SetActive(false);
-        CamNPC1.SetActive(false);
-        CamNPC2.SetActive(false);
     }
 
     private void Update()
@@ -34,8 +30,6 @@ public class NPCinteraction : MonoBehaviour
         {
             MainCamera.SetActive(false);
             CamNPC0.SetActive(true);
-            CamNPC1.SetActive(false);
-            CamNPC2.SetActive(false);
 
             Debug.Log("Turned MainCam OFF");
             Debug.Log("Turned CamNPC0 ON");
