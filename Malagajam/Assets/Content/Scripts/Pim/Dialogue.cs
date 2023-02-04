@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Dialogue : MonoBehaviour
 {
     public string name;
 
-    bool textActive;
+    [HideInInspector] public bool textActive;
 
     public TMP_Text nameText;
     public TMP_Text text;
@@ -19,11 +20,12 @@ public class Dialogue : MonoBehaviour
 
     public GameObject dialoguecontroller;
 
-    public PlayerMovement playerMovement;
+    public PlayerController playerMovement;
+
+    public UnityEvent EndOfDialogueEvent;
 
     private void Update()
     {
-        Debug.Log(sentances[currentIndex]); 
         if(textActive)
         {
             playerMovement.movementEnabled = false;
@@ -32,22 +34,21 @@ public class Dialogue : MonoBehaviour
         {
             playerMovement.movementEnabled = true;
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.E))
+    public void MoveThroughDialogue()
+    {
+        if (!textActive)
         {
-            if (!textActive)
-            {
-                InitiateText();
-            }
-            else if (textActive)
-            {
-                ChangeSentance();
-            }
-
+            InitiateText();
+        }
+        else
+        {
+            ChangeSentence();
         }
     }
 
-    void ChangeSentance()
+    void ChangeSentence()
     {
         if (sentances[currentIndex] == null || sentances[currentIndex + 1] == "")
         {
@@ -56,7 +57,9 @@ public class Dialogue : MonoBehaviour
         else
         {
             currentIndex++;
-            text.text = sentances[currentIndex];
+            StopAllCoroutines();
+            StartCoroutine(TypeSentance(sentances[currentIndex]));
+
         }
 
     }
@@ -67,13 +70,25 @@ public class Dialogue : MonoBehaviour
         dialoguecontroller.transform.position = new Vector3(dialoguecontroller.transform.position.x, dialoguecontroller.transform.position.y + 500);
 
         nameText.text = name;
-        text.text = sentances[currentIndex];
+        StartCoroutine(TypeSentance(sentances[currentIndex]));
     }
 
     void RemoveText()
     {
         textActive = false;
+        EndOfDialogueEvent?.Invoke();
         dialoguecontroller.transform.position = new Vector3(dialoguecontroller.transform.position.x, dialoguecontroller.transform.position.y - 500, dialoguecontroller.transform.position.z);
         currentIndex = 0;
     }
+
+    IEnumerator TypeSentance(string sentance)
+    {
+        text.text = "";
+        foreach(char letter in sentance.ToCharArray())
+        {
+            text.text += letter;
+            yield return null;
+            yield return null;
+        }
+    } 
 }
