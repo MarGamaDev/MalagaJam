@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
     #region jump
     void Jump()
     {
-        readyToJump = false;
+        readyToJump = false;    
         rb.velocity = transform.up * jumpForce;
         Invoke("ReadyToJump", 0.1f);
     }
