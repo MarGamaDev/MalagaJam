@@ -59,7 +59,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(movementEnabled);
         if (!movementEnabled)
         {
             rb.velocity = Vector3.zero;
@@ -107,11 +106,9 @@ public class PlayerController : MonoBehaviour
         {
             case 1:
                 directionFloat = 1f;
-                Debug.Log("going up");
                 break;
             case -1:
                 directionFloat = 2f;
-                Debug.Log("going down");
                 break;
             default:
                 break;
@@ -160,8 +157,8 @@ public class PlayerController : MonoBehaviour
     {
         readyToJump = false;
         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-        rb.AddForce(Vector3.up * jumpForce);
-        Invoke("ReadyToJump", 0.05f);
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        Invoke("ReadyToJump", 0.1f);
     }
     void ReadyToJump()
     {
