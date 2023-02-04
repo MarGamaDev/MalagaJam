@@ -52,7 +52,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!movementEnabled)
         {
-            Debug.Log(rb.velocity.sqrMagnitude);
             rb.velocity = Vector3.zero;
         }
         if (movementEnabled)
@@ -83,7 +82,6 @@ public class PlayerMovement : MonoBehaviour
 
     void GetInput()
     {
-        //direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
         Vector2 input = _playerInput.PlayerMap.Movement.ReadValue<Vector2>();
         direction = new Vector3(input.x, 0, input.y);
     }
@@ -105,7 +103,6 @@ public class PlayerMovement : MonoBehaviour
 
     void GroundCheck()
     {
-        //Debug.DrawRay(transform.position, -transform.up, Color.green);
         Debug.DrawLine(transform.position, transform.position + (-transform.up * _groundCheckRayLength), Color.green);
         if (Physics.Raycast(transform.position, -transform.up, _groundCheckRayLength, groundLayer))
         {
