@@ -16,16 +16,6 @@ public class NPCinteraction : MonoBehaviour, IInteractable
         _dialogue = GetComponent<Dialogue>();
     }
 
-    private void OnEnable()
-    {
-        _dialogue.EndOfDialogueEvent.AddListener(ResetCams);
-    }
-
-    private void OnDisable()
-    {
-        _dialogue.EndOfDialogueEvent.RemoveListener(ResetCams);
-    }
-
     public void Interact()
     {
         if (!_dialogue.textActive)
