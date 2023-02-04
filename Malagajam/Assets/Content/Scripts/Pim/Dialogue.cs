@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Dialogue : MonoBehaviour
 {
     public string name;
 
-    bool textActive;
-    bool inTriggerRange;
+    [HideInInspector] public bool textActive;
 
     public TMP_Text nameText;
     public TMP_Text text;
@@ -20,7 +20,9 @@ public class Dialogue : MonoBehaviour
 
     public GameObject dialoguecontroller;
 
-    public PlayerMovement playerMovement;
+    public PlayerController playerMovement;
+
+    public UnityEvent EndOfDialogueEvent;
 
     private void Update()
     {
@@ -32,35 +34,21 @@ public class Dialogue : MonoBehaviour
         {
             playerMovement.movementEnabled = true;
         }
+    }
 
-        if(inTriggerRange)
-        if (Input.GetKeyDown(KeyCode.E))
+    public void MoveThroughDialogue()
+    {
+        if (!textActive)
         {
-            if (!textActive)
-            {
-                InitiateText();
-            }
-            else if (textActive)
-            {
-                ChangeSentance();
-            }
-
+            InitiateText();
+        }
+        else
+        {
+            ChangeSentence();
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            inTriggerRange = true;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        inTriggerRange = false;
-    }
-
-    void ChangeSentance()
+    void ChangeSentence()
     {
         if (sentances[currentIndex] == null || sentances[currentIndex + 1] == "")
         {
@@ -88,6 +76,7 @@ public class Dialogue : MonoBehaviour
     void RemoveText()
     {
         textActive = false;
+        EndOfDialogueEvent?.Invoke();
         dialoguecontroller.transform.position = new Vector3(dialoguecontroller.transform.position.x, dialoguecontroller.transform.position.y - 500, dialoguecontroller.transform.position.z);
         currentIndex = 0;
     }

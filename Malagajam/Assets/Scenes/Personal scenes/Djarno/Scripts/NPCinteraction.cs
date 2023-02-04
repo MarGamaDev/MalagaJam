@@ -3,36 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class NPCinteraction : MonoBehaviour
+public class NPCinteraction : MonoBehaviour, IInteractable
 {
     public GameObject MainCamera;
     public GameObject CamNPC0;
-
-    public LayerMask playerMask;
+    private Dialogue _dialogue;
 
     private void Start()
     {
         MainCamera.SetActive(true);
         CamNPC0.SetActive(false);
+        _dialogue = GetComponent<Dialogue>();
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            AttemptInteract();
-        }
+        _dialogue.EndOfDialogueEvent.AddListener(ResetCams);
     }
 
-    void AttemptInteract()
+    private void OnDisable()
     {
-        if (Physics.OverlapSphere(transform.position, 2, playerMask).Length > 0)
+        _dialogue.EndOfDialogueEvent.RemoveListener(ResetCams);
+    }
+
+    public void Interact()
+    {
+        if (!_dialogue.textActive)
         {
             MainCamera.SetActive(false);
             CamNPC0.SetActive(true);
-
             Debug.Log("Turned MainCam OFF");
             Debug.Log("Turned CamNPC0 ON");
         }
+
+        _dialogue.MoveThroughDialogue();
+    }
+
+    public void ResetCams()
+    {
+        MainCamera.SetActive(true);
+        CamNPC0.SetActive(false);
+        Debug.Log("Turned MainCam ON");
+        Debug.Log("Turned CamNPC0 OFF");
     }
 }

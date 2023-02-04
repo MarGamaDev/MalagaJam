@@ -4,7 +4,7 @@ using UnityEditor.TextCore.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public bool movementEnabled = true;
 
@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     LayerMask groundLayer;
     bool isGrounded = true;
     [SerializeField] private float _groundCheckRayLength = 0.52f;
+
+    [SerializeField] private float _interactRadius = 2;
+    [SerializeField] private LayerMask _interactableMask;
 
     private PlayerInput _playerInput;
 
@@ -54,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = Vector3.zero;
         }
+
         if (movementEnabled)
         {
             GetInput();
@@ -64,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
                 Jump();
             }
         }
+
+
     }
 
     private void FixedUpdate()
@@ -72,6 +78,24 @@ public class PlayerMovement : MonoBehaviour
         {
             Move();
         }
+    }
+
+    private void InteractWithEnvironment()
+    {
+        Collider[] nearbyColliders = Physics.OverlapSphere(transform.position, _interactRadius, _interactableMask);
+        Collider closest = new Collider();
+        float distance = 200f;
+        foreach (Collider collider in nearbyColliders)
+        {
+            float distanceToCollider = Vector3.Distance(transform.position, collider.transform.position);
+            if (distanceToCollider < distance)
+            {
+                closest= collider;
+                distance = distanceToCollider;
+            }
+        }
+
+        closest.GetComponent<IInteractable>().Interact();
     }
 
     #region Movement Methods
