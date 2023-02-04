@@ -9,6 +9,7 @@ public class Dialogue : MonoBehaviour
     public string name;
 
     bool textActive;
+    bool inTriggerRange;
 
     public TMP_Text nameText;
     public TMP_Text text;
@@ -23,7 +24,6 @@ public class Dialogue : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(sentances[currentIndex]); 
         if(textActive)
         {
             playerMovement.movementEnabled = false;
@@ -33,6 +33,7 @@ public class Dialogue : MonoBehaviour
             playerMovement.movementEnabled = true;
         }
 
+        if(inTriggerRange)
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (!textActive)
@@ -45,6 +46,18 @@ public class Dialogue : MonoBehaviour
             }
 
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            inTriggerRange = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        inTriggerRange = false;
     }
 
     void ChangeSentance()

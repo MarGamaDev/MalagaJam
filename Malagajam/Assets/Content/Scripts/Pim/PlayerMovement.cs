@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     float jumpForce;
-    bool readyToJump;
+    bool readyToJump = true;
 
     //Groundcheck
     [SerializeField]
@@ -34,6 +34,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!movementEnabled)
+        {
+            Debug.Log(rb.velocity.sqrMagnitude);
+            rb.velocity = Vector3.zero;
+        }
         if (movementEnabled)
         {
             GetInput();
@@ -57,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
     #region Movement Methods
     void Move()
     {
-        transform.Translate(direction * movementSpeed / multiplier);
+        rb.AddForce(direction * movementSpeed *Time.deltaTime * multiplier);
     }
     void GetInput()
     {
@@ -71,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
     {
         readyToJump = false;
         rb.AddForce(direction.x, jumpForce * multiplier, direction.z);
-        Invoke("ReadyToJump", 0.1f);
+        Invoke("ReadyToJump", 0.05f);
     }
     void ReadyToJump()
     {
