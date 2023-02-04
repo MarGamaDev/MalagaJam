@@ -69,7 +69,9 @@ public class Dialogue : MonoBehaviour
         else
         {
             currentIndex++;
-            text.text = sentances[currentIndex];
+            StopAllCoroutines();
+            StartCoroutine(TypeSentance(sentances[currentIndex]));
+
         }
 
     }
@@ -80,7 +82,7 @@ public class Dialogue : MonoBehaviour
         dialoguecontroller.transform.position = new Vector3(dialoguecontroller.transform.position.x, dialoguecontroller.transform.position.y + 500);
 
         nameText.text = name;
-        text.text = sentances[currentIndex];
+        StartCoroutine(TypeSentance(sentances[currentIndex]));
     }
 
     void RemoveText()
@@ -89,4 +91,15 @@ public class Dialogue : MonoBehaviour
         dialoguecontroller.transform.position = new Vector3(dialoguecontroller.transform.position.x, dialoguecontroller.transform.position.y - 500, dialoguecontroller.transform.position.z);
         currentIndex = 0;
     }
+
+    IEnumerator TypeSentance(string sentance)
+    {
+        text.text = "";
+        foreach(char letter in sentance.ToCharArray())
+        {
+            text.text += letter;
+            yield return null;
+            yield return null;
+        }
+    } 
 }
