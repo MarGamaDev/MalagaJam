@@ -59,6 +59,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(movementEnabled);
         if (!movementEnabled)
         {
             rb.velocity = Vector3.zero;
@@ -128,7 +129,7 @@ public class PlayerController : MonoBehaviour
         Collider closest = new Collider();
         float distance = 200f;
         foreach (Collider collider in nearbyColliders)
-        {
+        {   
             float distanceToCollider = Vector3.Distance(transform.position, collider.transform.position);
             if (distanceToCollider < distance)
             {
@@ -150,7 +151,6 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 input = _playerInput.PlayerMap.Movement.ReadValue<Vector2>();
         direction = new Vector3(input.x, 0, input.y);
-        Debug.Log(direction);
     }
 
 

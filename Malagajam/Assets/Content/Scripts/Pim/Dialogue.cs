@@ -24,18 +24,6 @@ public class Dialogue : MonoBehaviour
 
     public UnityEvent EndOfDialogueEvent;
 
-    private void Update()
-    {
-        if(textActive)
-        {
-            playerMovement.movementEnabled = false;
-        }
-        else if (!textActive)
-        {
-            playerMovement.movementEnabled = true;
-        }
-    }
-
     public void MoveThroughDialogue()
     {
         if (!textActive)
@@ -53,6 +41,7 @@ public class Dialogue : MonoBehaviour
         if (sentances[currentIndex] == null || sentances[currentIndex + 1] == "")
         {
             RemoveText();
+            playerMovement.movementEnabled = true;
         }
         else
         {
@@ -66,6 +55,7 @@ public class Dialogue : MonoBehaviour
 
     void InitiateText()
     {
+        playerMovement.movementEnabled = false;
         textActive = true;
         dialoguecontroller.transform.position = new Vector3(dialoguecontroller.transform.position.x, dialoguecontroller.transform.position.y + 500);
 
