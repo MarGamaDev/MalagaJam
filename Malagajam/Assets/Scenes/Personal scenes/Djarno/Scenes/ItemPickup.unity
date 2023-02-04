@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 42543422}
   - component: {fileID: 42543426}
   m_Layer: 7
-  m_Name: ItemYellow
+  m_Name: ItemMushroom3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -176,7 +176,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa27c6f2d1f850c489003a37a77c39de, type: 2}
+  - {fileID: 2100000, guid: cc591709483287a4aae835b6da0892f9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinspeed: 0.5
-  _itemName: Ananas
+  _itemName: Mushroom3
 --- !u!114 &304470709 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3387857167720526469, guid: 1a1ce398ce8c57c4aa02b7268aa0bd6a, type: 3}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 423587012}
   - component: {fileID: 423587016}
   m_Layer: 7
-  m_Name: ItemPink
+  m_Name: ItemMushroom1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,7 +299,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: efaa8299e5f7962489b02a76c8719304, type: 2}
+  - {fileID: 2100000, guid: cc591709483287a4aae835b6da0892f9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinspeed: 0.5
-  _itemName: Strawberry
+  _itemName: Mushroom1
 --- !u!1 &522667905
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,7 +988,7 @@ GameObject:
   - component: {fileID: 1375847924}
   - component: {fileID: 1375847928}
   m_Layer: 7
-  m_Name: ItemOrange
+  m_Name: ItemMushroom2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1027,7 +1027,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8a5add33e984af14eb635bc2090d3daa, type: 2}
+  - {fileID: 2100000, guid: cc591709483287a4aae835b6da0892f9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1085,7 +1085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinspeed: 0.5
-  _itemName: Orange
+  _itemName: Mushroom2
 --- !u!1 &1400035015
 GameObject:
   m_ObjectHideFlags: 0
