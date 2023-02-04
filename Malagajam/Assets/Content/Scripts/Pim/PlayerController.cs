@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (_playerInput.PlayerMap.Interact.ReadValue<float>() == 1)
+        if (_playerInput.PlayerMap.Interact.triggered)
         {
             InteractWithEnvironment();
         }
