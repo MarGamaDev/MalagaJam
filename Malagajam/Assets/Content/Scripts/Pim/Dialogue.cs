@@ -88,16 +88,16 @@ public class Dialogue : MonoBehaviour
     }
     void AmmanitaText()
     {
-        if (name == "Amanita" && !_GameManager.IsItemInList("Mushroom"))
+        if (name == "Amanita" && !_GameManager.IsItemInList("Mushroom1"))
         {
-            if (currentIndex > 1)
+            if (currentIndex > 2)
             {
                 RemoveText();
             }
         }
         else if(name == "Amanita" && _GameManager.IsItemInList("Mushroom1")&& _GameManager.IsItemInList("Mushroom2")&& _GameManager.IsItemInList("Mushroom3"))
         {
-            currentIndex= 2;
+            currentIndex =+ 2;
         }
     }
 }
