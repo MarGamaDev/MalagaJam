@@ -1,6 +1,7 @@
 using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.TextCore.Text;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerInput.PlayerMap.Enable();
+        _playerInput.PlayerMap.Enable();    
     }
 
     private void OnDisable()
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour
             UpdateAnimator();
             GroundCheck();
 
-            if (_playerInput.PlayerMap.Jump.ReadValue<float>() == 1 && isGrounded)
+            if (_playerInput.PlayerMap.Jump.ReadValue<float>() == 1 && isGrounded && readyToJump)
             {
                 Jump();
             }
@@ -134,8 +135,13 @@ public class PlayerController : MonoBehaviour
                 distance = distanceToCollider;
             }
         }
+        if(nearbyColliders.Length <= 0) 
+        {
+            return; 
+        }
 
         closest.GetComponent<IInteractable>().Interact();
+
     }
 
     #region Movement Methods
@@ -156,13 +162,12 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         readyToJump = false;
-        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        rb.velocity = transform.up * jumpForce;
         Invoke("ReadyToJump", 0.1f);
     }
     void ReadyToJump()
     {
-        readyToJump= true;
+        readyToJump = true;
     }
 
     void GroundCheck()
