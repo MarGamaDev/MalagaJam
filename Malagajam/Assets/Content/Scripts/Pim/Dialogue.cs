@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,20 +10,29 @@ public class Dialogue : MonoBehaviour
 {
     public string name;
 
+    public GameManager _GameManager;
+
     [HideInInspector] public bool textActive;
 
     public TMP_Text nameText;
     public TMP_Text text;
     private int currentIndex = 0;
 
-    [TextArea(0, 10)]
-    public string[] sentances;
+    //[TextArea(0, 10)]
+    //public string[] sentances;
+    [SerializeField] private DialogueObject baseDialogue;
+    private DialogueObject currentDialogue;
 
     public GameObject dialoguecontroller;
 
     public PlayerController playerMovement;
 
     public UnityEvent EndOfDialogueEvent;
+
+    private void Start()
+    {
+        currentDialogue = baseDialogue;
+    }
 
     public void MoveThroughDialogue()
     {
@@ -38,16 +48,16 @@ public class Dialogue : MonoBehaviour
 
     void ChangeSentence()
     {
-        if (sentances[currentIndex] == null || sentances[currentIndex + 1] == "")
+        if (currentDialogue.Sentences[currentIndex] == null || currentDialogue.Sentences[currentIndex + 1] == "")
         {
             RemoveText();
-            playerMovement.movementEnabled = true;
+
         }
         else
         {
             currentIndex++;
             StopAllCoroutines();
-            StartCoroutine(TypeSentance(sentances[currentIndex]));
+            StartCoroutine(TypeSentance(currentDialogue.Sentences[currentIndex]));
 
         }
 
@@ -60,11 +70,12 @@ public class Dialogue : MonoBehaviour
         dialoguecontroller.transform.position = new Vector3(dialoguecontroller.transform.position.x, dialoguecontroller.transform.position.y + 500);
 
         nameText.text = name;
-        StartCoroutine(TypeSentance(sentances[currentIndex]));
+        StartCoroutine(TypeSentance(currentDialogue.Sentences[currentIndex]));
     }
 
     void RemoveText()
     {
+        playerMovement.movementEnabled = true;
         textActive = false;
         EndOfDialogueEvent?.Invoke();
         dialoguecontroller.transform.position = new Vector3(dialoguecontroller.transform.position.x, dialoguecontroller.transform.position.y - 500, dialoguecontroller.transform.position.z);
@@ -80,5 +91,25 @@ public class Dialogue : MonoBehaviour
             yield return null;
             yield return null;
         }
-    } 
+    }
+
+    public void SwitchDialogue(DialogueObject newDialogue)
+    {
+        currentDialogue = newDialogue;
+    }
+
+    //void AmmanitaText()
+    //{
+    //    if (name == "Amanita" && !_GameManager.IsItemInList("Mushroom1"))
+    //    {
+    //        if (currentIndex > 2)
+    //        {
+    //            RemoveText();
+    //        }
+    //    }
+    //    else if(name == "Amanita" && _GameManager.IsItemInList("Mushroom1")&& _GameManager.IsItemInList("Mushroom2")&& _GameManager.IsItemInList("Mushroom3"))
+    //    {
+    //        currentIndex =+ 2;
+    //    }
+    //}
 }

@@ -50,13 +50,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Joe
+  _GameManager: {fileID: 0}
   textActive: 0
   nameText: {fileID: 0}
   text: {fileID: 0}
-  sentances:
-  - First Sentance
-  - Something completely different
-  - 
+  baseDialogue: {fileID: 11400000, guid: 8f3b4b822fcccb244910ba04216bc312, type: 2}
   dialoguecontroller: {fileID: 0}
   playerMovement: {fileID: 0}
   EndOfDialogueEvent:
@@ -88,6 +86,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 0}
   CamNPC0: {fileID: 0}
+  _dialogueChangeItemConditions: []
+  _questDialogue: {fileID: 11400000, guid: 1906eb49a9610a24fbf9ecb5dbcd9bb9, type: 2}
 --- !u!135 &5471701465520159112
 SphereCollider:
   m_ObjectHideFlags: 0

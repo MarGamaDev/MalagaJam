@@ -9,6 +9,8 @@ public class NPCinteraction : MonoBehaviour, IInteractable
     public GameObject CamNPC0;
     private Dialogue _dialogue;
     private LookAtNpc _LookAtNPC;
+    [SerializeField] private List<string> _dialogueChangeItemConditions;
+    [SerializeField] private DialogueObject _questDialogue;
 
     private void Start()
     {
@@ -20,6 +22,16 @@ public class NPCinteraction : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        bool questDone = true;
+        foreach (string item in _dialogueChangeItemConditions)
+        {
+            if (!GameManager.Instance.IsItemInList(item))
+            {
+                questDone = false;
+            }
+        }
+        if (questDone) { _dialogue.SwitchDialogue(_questDialogue); }
+
         if (!_dialogue.textActive)
         {
             CamNPC0.transform.LookAt(_LookAtNPC.FindClosestTarget());
