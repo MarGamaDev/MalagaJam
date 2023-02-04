@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.TextCore.Text;
@@ -31,6 +32,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private float multiplier = 20;
 
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
+
     private void OnEnable()
     {
         _playerInput.PlayerMap.Enable();
@@ -44,6 +48,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _playerInput = new PlayerInput();
+        _animator = GetComponentInChildren<Animator>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Start()
@@ -61,6 +67,7 @@ public class PlayerController : MonoBehaviour
         if (movementEnabled)
         {
             GetInput();
+            UpdateAnimator();
             GroundCheck();
 
             if (_playerInput.PlayerMap.Jump.ReadValue<float>() == 1 && isGrounded)
@@ -81,6 +88,37 @@ public class PlayerController : MonoBehaviour
         if (movementEnabled)
         {
             Move();
+        }
+    }
+
+    private void UpdateAnimator()
+    {
+        _animator.SetBool("Walking", direction.magnitude > 0);
+        float directionFloat = 0f;
+
+        if (direction.x != 0)
+        {
+            _spriteRenderer.flipX = direction.x > 0;
+            directionFloat = 3f;
+        }
+
+        switch (direction.z)
+        {
+            case 1:
+                directionFloat = 1f;
+                Debug.Log("going up");
+                break;
+            case -1:
+                directionFloat = 2f;
+                Debug.Log("going down");
+                break;
+            default:
+                break;
+        }
+
+        if (directionFloat != 0)
+        {
+            _animator.SetFloat("Direction", directionFloat);
         }
     }
 
@@ -112,6 +150,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 input = _playerInput.PlayerMap.Movement.ReadValue<Vector2>();
         direction = new Vector3(input.x, 0, input.y);
+        Debug.Log(direction);
     }
 
 

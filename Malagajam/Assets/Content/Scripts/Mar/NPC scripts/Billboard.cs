@@ -17,10 +17,10 @@ public class Billboard : MonoBehaviour
         switch (_billboardType)
         {
             case BillboardType.LookAtCamera:
-                transform.LookAt(Camera.main.transform.position);
+                transform.LookAt(-(Camera.main.transform.position - transform.position));
                 break;
             case BillboardType.CameraDirection:
-                transform.LookAt(transform.position - Camera.main.transform.forward);
+                transform.LookAt(transform.position + Camera.main.transform.forward);
                 break;
             default:
                 break;
