@@ -19,13 +19,29 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     LayerMask groundLayer;
     bool isGrounded = true;
+    [SerializeField] private float _groundCheckRayLength = 0.52f;
 
-
+    private PlayerInput _playerInput;
 
     private Vector3 direction;
 
     private Rigidbody rb;
     private float multiplier = 20;
+
+    private void OnEnable()
+    {
+        _playerInput.PlayerMap.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _playerInput.PlayerMap.Disable();
+    }
+
+    private void Awake()
+    {
+        _playerInput = new PlayerInput();
+    }
 
     void Start()
     {
@@ -42,21 +58,21 @@ public class PlayerMovement : MonoBehaviour
         if (movementEnabled)
         {
             GetInput();
+            GroundCheck();
 
-            if (Input.GetButton("Jump") && isGrounded && readyToJump)
+            if (_playerInput.PlayerMap.Jump.ReadValue<float>() == 1 && isGrounded)
             {
                 Jump();
             }
         }
     }
+
     private void FixedUpdate()
     {
         if (movementEnabled)
         {
             Move();
-            GroundCheck();
         }
-
     }
 
     #region Movement Methods
@@ -64,9 +80,12 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.AddForce(direction * movementSpeed *Time.deltaTime * multiplier);
     }
+
     void GetInput()
     {
-        direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+        //direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+        Vector2 input = _playerInput.PlayerMap.Movement.ReadValue<Vector2>();
+        direction = new Vector3(input.x, 0, input.y);
     }
 
 
@@ -75,7 +94,8 @@ public class PlayerMovement : MonoBehaviour
     void Jump()
     {
         readyToJump = false;
-        rb.AddForce(direction.x, jumpForce * multiplier, direction.z);
+        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        rb.AddForce(Vector3.up * jumpForce);
         Invoke("ReadyToJump", 0.05f);
     }
     void ReadyToJump()
@@ -85,8 +105,9 @@ public class PlayerMovement : MonoBehaviour
 
     void GroundCheck()
     {
-        Debug.DrawRay(transform.position, -transform.up, Color.green);
-        if (Physics.Raycast(transform.position, -transform.up, 0.5f, groundLayer))
+        //Debug.DrawRay(transform.position, -transform.up, Color.green);
+        Debug.DrawLine(transform.position, transform.position + (-transform.up * _groundCheckRayLength), Color.green);
+        if (Physics.Raycast(transform.position, -transform.up, _groundCheckRayLength, groundLayer))
         {
             isGrounded = true;
         }
