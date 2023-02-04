@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public bool movementEnabled = true;
+
     [SerializeField]
     float movementSpeed;
 
@@ -32,18 +34,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        GetInput();
-
-        if (Input.GetButton("Jump")&& isGrounded && readyToJump)
+        if (movementEnabled)
         {
-            Jump();
-        }
+            GetInput();
 
+            if (Input.GetButton("Jump") && isGrounded && readyToJump)
+            {
+                Jump();
+            }
+        }
     }
     private void FixedUpdate()
     {
-        Move();
-        GroundCheck();
+        if (movementEnabled)
+        {
+            Move();
+            GroundCheck();
+        }
+
     }
 
     #region Movement Methods
