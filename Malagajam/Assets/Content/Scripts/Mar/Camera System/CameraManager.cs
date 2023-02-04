@@ -27,12 +27,12 @@ public class CameraManager : MonoBehaviour
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    public void TransitionToNewScreen(LevelCameraBox newCamBox, Vector3 targetPosition)
+    public void TransitionToNewScreen(LevelCameraBox newCamBox, Vector3 targetPosition, GameObject oldLevel, GameObject newLevel)
     {
-        StartCoroutine(CamTransition(newCamBox, targetPosition));
+        StartCoroutine(CamTransition(newCamBox, targetPosition, oldLevel, newLevel));
     }
 
-    private IEnumerator CamTransition(LevelCameraBox newCamBox, Vector3 targetPosition)
+    private IEnumerator CamTransition(LevelCameraBox newCamBox, Vector3 targetPosition, GameObject oldLevel, GameObject newLevel)
     {
         GameManager.Instance.PauseGame(true);
 
@@ -46,7 +46,10 @@ public class CameraManager : MonoBehaviour
         }
 
         _playerTransform.position = targetPosition;
+        _playerTransform.GetComponent<Rigidbody>().velocity = Vector3.zero;
         _camMovement.MoveToNewScreen(newCamBox);
+        oldLevel.SetActive(false);
+        newLevel.SetActive(true);
 
         while (timer > 0)
         {
