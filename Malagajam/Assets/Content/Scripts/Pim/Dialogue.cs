@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,6 +9,8 @@ using UnityEngine.Events;
 public class Dialogue : MonoBehaviour
 {
     public string name;
+
+    public GameManager _GameManager;
 
     [HideInInspector] public bool textActive;
 
@@ -41,7 +44,7 @@ public class Dialogue : MonoBehaviour
         if (sentances[currentIndex] == null || sentances[currentIndex + 1] == "")
         {
             RemoveText();
-            playerMovement.movementEnabled = true;
+
         }
         else
         {
@@ -50,6 +53,7 @@ public class Dialogue : MonoBehaviour
             StartCoroutine(TypeSentance(sentances[currentIndex]));
 
         }
+        AmmanitaText();
 
     }
 
@@ -65,6 +69,7 @@ public class Dialogue : MonoBehaviour
 
     void RemoveText()
     {
+        playerMovement.movementEnabled = true;
         textActive = false;
         EndOfDialogueEvent?.Invoke();
         dialoguecontroller.transform.position = new Vector3(dialoguecontroller.transform.position.x, dialoguecontroller.transform.position.y - 500, dialoguecontroller.transform.position.z);
@@ -80,5 +85,19 @@ public class Dialogue : MonoBehaviour
             yield return null;
             yield return null;
         }
-    } 
+    }
+    void AmmanitaText()
+    {
+        if (name == "Amanita" && !_GameManager.IsItemInList("Mushroom"))
+        {
+            if (currentIndex > 1)
+            {
+                RemoveText();
+            }
+        }
+        else if(name == "Amanita" && _GameManager.IsItemInList("Mushroom1")&& _GameManager.IsItemInList("Mushroom2")&& _GameManager.IsItemInList("Mushroom3"))
+        {
+            currentIndex= 2;
+        }
+    }
 }
