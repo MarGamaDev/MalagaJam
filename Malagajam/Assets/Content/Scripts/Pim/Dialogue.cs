@@ -18,14 +18,21 @@ public class Dialogue : MonoBehaviour
     public TMP_Text text;
     private int currentIndex = 0;
 
-    [TextArea(0, 10)]
-    public string[] sentances;
+    //[TextArea(0, 10)]
+    //public string[] sentances;
+    [SerializeField] private DialogueObject baseDialogue;
+    private DialogueObject currentDialogue;
 
     public GameObject dialoguecontroller;
 
     public PlayerController playerMovement;
 
     public UnityEvent EndOfDialogueEvent;
+
+    private void Start()
+    {
+        currentDialogue = baseDialogue;
+    }
 
     public void MoveThroughDialogue()
     {
@@ -41,7 +48,7 @@ public class Dialogue : MonoBehaviour
 
     void ChangeSentence()
     {
-        if (sentances[currentIndex] == null || sentances[currentIndex + 1] == "")
+        if (currentDialogue.Sentences[currentIndex] == null || currentDialogue.Sentences[currentIndex + 1] == "")
         {
             RemoveText();
 
@@ -50,10 +57,9 @@ public class Dialogue : MonoBehaviour
         {
             currentIndex++;
             StopAllCoroutines();
-            StartCoroutine(TypeSentance(sentances[currentIndex]));
+            StartCoroutine(TypeSentance(currentDialogue.Sentences[currentIndex]));
 
         }
-        AmmanitaText();
 
     }
 
@@ -64,7 +70,7 @@ public class Dialogue : MonoBehaviour
         dialoguecontroller.transform.position = new Vector3(dialoguecontroller.transform.position.x, dialoguecontroller.transform.position.y + 500);
 
         nameText.text = name;
-        StartCoroutine(TypeSentance(sentances[currentIndex]));
+        StartCoroutine(TypeSentance(currentDialogue.Sentences[currentIndex]));
     }
 
     void RemoveText()
@@ -86,18 +92,24 @@ public class Dialogue : MonoBehaviour
             yield return null;
         }
     }
-    void AmmanitaText()
+
+    public void SwitchDialogue(DialogueObject newDialogue)
     {
-        if (name == "Amanita" && !_GameManager.IsItemInList("Mushroom1"))
-        {
-            if (currentIndex > 2)
-            {
-                RemoveText();
-            }
-        }
-        else if(name == "Amanita" && _GameManager.IsItemInList("Mushroom1")&& _GameManager.IsItemInList("Mushroom2")&& _GameManager.IsItemInList("Mushroom3"))
-        {
-            currentIndex =+ 2;
-        }
+        currentDialogue = newDialogue;
     }
+
+    //void AmmanitaText()
+    //{
+    //    if (name == "Amanita" && !_GameManager.IsItemInList("Mushroom1"))
+    //    {
+    //        if (currentIndex > 2)
+    //        {
+    //            RemoveText();
+    //        }
+    //    }
+    //    else if(name == "Amanita" && _GameManager.IsItemInList("Mushroom1")&& _GameManager.IsItemInList("Mushroom2")&& _GameManager.IsItemInList("Mushroom3"))
+    //    {
+    //        currentIndex =+ 2;
+    //    }
+    //}
 }
