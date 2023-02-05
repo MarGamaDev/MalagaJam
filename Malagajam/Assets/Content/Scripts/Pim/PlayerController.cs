@@ -27,8 +27,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask _interactableMask;
 
     private PlayerInput _playerInput;
-
-    private Vector3 direction;
+    private Vector2 _inputVector;
+    private Vector3 _newVelocity;
 
     private Rigidbody rb;
     private float multiplier = 20;
@@ -75,6 +75,8 @@ public class PlayerController : MonoBehaviour
             {
                 Jump();
             }
+
+            Move();
         }
 
         if (_playerInput.PlayerMap.Interact.triggered)
@@ -84,26 +86,18 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
-    {
-        if (movementEnabled)
-        {
-            Move();
-        }
-    }
-
     private void UpdateAnimator()
     {
-        _animator.SetBool("Walking", direction.magnitude > 0);
+        _animator.SetBool("Walking", _inputVector.magnitude > 0);
         float directionFloat = 0f;
 
-        if (direction.x != 0)
+        if (_inputVector.x != 0)
         {
-            _spriteRenderer.flipX = direction.x > 0;
+            _spriteRenderer.flipX = _inputVector.x > 0;
             directionFloat = 3f;
         }
 
-        switch (direction.z)
+        switch (_inputVector.y)
         {
             case 1:
                 directionFloat = 1f;
@@ -147,13 +141,13 @@ public class PlayerController : MonoBehaviour
     #region Movement Methods
     void Move()
     {
-        rb.AddForce(direction * movementSpeed *Time.deltaTime * multiplier);
+        rb.velocity = _newVelocity;
     }
 
     void GetInput()
     {
-        Vector2 input = _playerInput.PlayerMap.Movement.ReadValue<Vector2>();
-        direction = new Vector3(input.x, 0, input.y);
+        _inputVector = _playerInput.PlayerMap.Movement.ReadValue<Vector2>();
+        _newVelocity = new Vector3(_inputVector.x * movementSpeed, rb.velocity.y, _inputVector.y * movementSpeed);
     }
 
 
@@ -161,8 +155,8 @@ public class PlayerController : MonoBehaviour
     #region jump
     void Jump()
     {
-        readyToJump = false;    
-        rb.velocity = transform.up * jumpForce;
+        readyToJump = false;
+        _newVelocity.y = jumpForce;
         Invoke("ReadyToJump", 0.1f);
     }
     void ReadyToJump()
