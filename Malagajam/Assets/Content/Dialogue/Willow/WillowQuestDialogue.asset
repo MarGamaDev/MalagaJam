@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: WillowQuestDialogue
   m_EditorClassIdentifier: 
   Sentences:
-  - Greetings Liko...
-  - I see you've collected all the orbs. I am deeply grateful.
-  - Now i can revive our Tree, and we can live in peace again.
+  - hello again, have you collected the orbs?
   - 
