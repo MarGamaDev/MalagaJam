@@ -76,7 +76,7 @@ public class Dialogue : MonoBehaviour
     {
         playerMovement.movementEnabled = false;
         textActive = true;
-        dialoguecontroller.transform.position = new Vector3(dialoguecontroller.transform.position.x, dialoguecontroller.transform.position.y + 500);
+        dialoguecontroller.active = true;
 
         nameText.text = Name;
         StartCoroutine(TypeSentance(_currentDialogue.Sentences[currentIndex]));
@@ -87,8 +87,7 @@ public class Dialogue : MonoBehaviour
         playerMovement.movementEnabled = true;
         textActive = false;
         EndOfDialogueEvent?.Invoke();
-        dialoguecontroller.transform.position = new Vector3(dialoguecontroller.transform.position.x, dialoguecontroller.transform.position.y - 500, dialoguecontroller.transform.position.z);
-        currentIndex = 0;
+        dialoguecontroller.active = false;
     }
 
     IEnumerator TypeSentance(string sentance)
@@ -101,7 +100,6 @@ public class Dialogue : MonoBehaviour
                 _talkAudio.Play();
             }
             text.text += letter;
-            yield return null;
             yield return null;
         }
         _talkAudio.Stop();
@@ -125,19 +123,4 @@ public class Dialogue : MonoBehaviour
                 break;
         }
     }
-
-    //void AmmanitaText()
-    //{
-    //    if (name == "Amanita" && !_GameManager.IsItemInList("Mushroom1"))
-    //    {
-    //        if (currentIndex > 2)
-    //        {
-    //            RemoveText();
-    //        }
-    //    }
-    //    else if(name == "Amanita" && _GameManager.IsItemInList("Mushroom1")&& _GameManager.IsItemInList("Mushroom2")&& _GameManager.IsItemInList("Mushroom3"))
-    //    {
-    //        currentIndex =+ 2;
-    //    }
-    //}
 }
