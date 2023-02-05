@@ -18,16 +18,14 @@ public class Dialogue : MonoBehaviour
 
     public string Name;
 
-    public GameManager _GameManager;
-
     [HideInInspector] public bool textActive;
 
+    [Space]
     public TMP_Text nameText;
     public TMP_Text text;
     private int currentIndex = 0;
 
-    //[TextArea(0, 10)]
-    //public string[] sentances;
+    [Space]
     [SerializeField] private DialogueObject _baseDialogue;
     [SerializeField] private DialogueObject _questDialogue;
     [SerializeField] private DialogueObject _postDialogue;
