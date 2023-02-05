@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ceb30eaa8e9bed49925db85b9c00457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _billboardType: 0
+  _billboardType: 1
 --- !u!212 &5110082025801535245
 SpriteRenderer:
   m_ObjectHideFlags: 0

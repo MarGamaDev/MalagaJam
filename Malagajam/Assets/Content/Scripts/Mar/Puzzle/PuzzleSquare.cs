@@ -15,10 +15,10 @@ public class PuzzleSquare : MonoBehaviour
     public Orientation CurrentOrientation = Orientation.Up;
     public Orientation _targetOrientation = Orientation.Up;
 
-    [SerializeField] private float _timeToSpin = 1f;
+    [SerializeField] private float _timeToSpin = 0.6f;
 
     private Vector3 _startPosition;
-    [SerializeField] private float _offsetWhenSpinning = 1f;
+    [SerializeField] private float _offsetWhenSpinning = 0.5f;
     [SerializeField] private float _timeToOffsetInSeconds = 0.5f;
 
     private void Awake()
