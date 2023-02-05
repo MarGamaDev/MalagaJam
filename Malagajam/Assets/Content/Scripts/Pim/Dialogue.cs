@@ -14,7 +14,7 @@ public class Dialogue : MonoBehaviour
         Quest,
         Post
     }
-    public DialogueType _dialogueType = DialogueType.Base;
+    public DialogueType dialogueType = DialogueType.Base;
 
     public string Name;
 
@@ -28,10 +28,10 @@ public class Dialogue : MonoBehaviour
 
     //[TextArea(0, 10)]
     //public string[] sentances;
-    [SerializeField] private DialogueObject baseDialogue;
-    [SerializeField] private DialogueObject questDialogue;
-    [SerializeField] private DialogueObject postDialogue;
-    private DialogueObject currentDialogue;
+    [SerializeField] private DialogueObject _baseDialogue;
+    [SerializeField] private DialogueObject _questDialogue;
+    [SerializeField] private DialogueObject _postDialogue;
+    private DialogueObject _currentDialogue;
 
     public GameObject dialoguecontroller;
 
@@ -39,9 +39,11 @@ public class Dialogue : MonoBehaviour
 
     public UnityEvent EndOfDialogueEvent;
 
+    [SerializeField] private AudioSource _talkAudio;
+
     private void Start()
     {
-        currentDialogue = baseDialogue;
+        _currentDialogue = _baseDialogue;
     }
 
     public void MoveThroughDialogue()
@@ -58,7 +60,7 @@ public class Dialogue : MonoBehaviour
 
     void ChangeSentence()
     {
-        if (currentDialogue.Sentences[currentIndex] == null || currentDialogue.Sentences[currentIndex + 1] == "")
+        if (_currentDialogue.Sentences[currentIndex] == null || _currentDialogue.Sentences[currentIndex + 1] == "")
         {
             RemoveText();
 
@@ -67,7 +69,7 @@ public class Dialogue : MonoBehaviour
         {
             currentIndex++;
             StopAllCoroutines();
-            StartCoroutine(TypeSentance(currentDialogue.Sentences[currentIndex]));
+            StartCoroutine(TypeSentance(_currentDialogue.Sentences[currentIndex]));
 
         }
     }
@@ -79,7 +81,7 @@ public class Dialogue : MonoBehaviour
         dialoguecontroller.transform.position = new Vector3(dialoguecontroller.transform.position.x, dialoguecontroller.transform.position.y + 500);
 
         nameText.text = Name;
-        StartCoroutine(TypeSentance(currentDialogue.Sentences[currentIndex]));
+        StartCoroutine(TypeSentance(_currentDialogue.Sentences[currentIndex]));
     }
 
     void RemoveText()
@@ -96,6 +98,10 @@ public class Dialogue : MonoBehaviour
         text.text = "";
         foreach(char letter in sentance.ToCharArray())
         {
+            if (!_talkAudio.isPlaying)
+            {
+                _talkAudio.Play();
+            }
             text.text += letter;
             yield return null;
             yield return null;
@@ -104,14 +110,17 @@ public class Dialogue : MonoBehaviour
 
     public void SwitchDialogue(DialogueType dialogueType)
     {
-        _dialogueType = dialogueType;
-        switch (_dialogueType)
+        this.dialogueType = dialogueType;
+        switch (this.dialogueType)
         {
             case DialogueType.Base:
+                _currentDialogue = _baseDialogue;
                 break;
             case DialogueType.Quest:
+                _currentDialogue = _questDialogue;
                 break;
             case DialogueType.Post:
+                _currentDialogue = _postDialogue;
                 break;
             default:
                 break;
