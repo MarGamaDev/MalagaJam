@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bbedfa36e3008e4f8260c16ae5e2d37, type: 3}
-  m_Name: quest
+  m_Name: DaisyBaseDialogue
   m_EditorClassIdentifier: 
   Sentences:
-  - Ah, thank you so much! Now I can make my mushroom soup!
-  - Here's the Growth Orb as promised.
+  - Aaaa!
+  - Did you see those pretty flowers up there?
+  - I wanted to give them some water, but I lost my watering can...
+  - Could you maybe find it for me?
   - 
