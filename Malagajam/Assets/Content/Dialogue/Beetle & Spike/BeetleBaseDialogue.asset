@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bbedfa36e3008e4f8260c16ae5e2d37, type: 3}
   m_Name: BeetleBaseDialogue
   m_EditorClassIdentifier: 
-  Sentences: []
+  Sentences:
+  - "Hi there little fella. Spike lost his golden friend and can\u2019t seem to find
+    it anywhere. "
+  - If you find and retrieve it for us, we will give you a reward.
+  - 

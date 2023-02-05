@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bbedfa36e3008e4f8260c16ae5e2d37, type: 3}
   m_Name: BeetlePostDialogue
   m_EditorClassIdentifier: 
-  Sentences: []
+  Sentences:
+  - Have you already found our golden beetle?
+  - 

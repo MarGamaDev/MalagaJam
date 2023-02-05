@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bbedfa36e3008e4f8260c16ae5e2d37, type: 3}
   m_Name: BeetleQuestDialogue
   m_EditorClassIdentifier: 
-  Sentences: []
+  Sentences:
+  - Thank you so much!
+  - Spike is so happy you got him his friend back.
+  - Here take this growth orb as your reward.
+  - 
