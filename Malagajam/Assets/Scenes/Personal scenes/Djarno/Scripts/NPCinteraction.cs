@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class NPCinteraction : MonoBehaviour, IInteractable
@@ -10,6 +11,7 @@ public class NPCinteraction : MonoBehaviour, IInteractable
     private LookAtNpc _LookAtNPC;
     [SerializeField] private List<string> _dialogueChangeItemConditions;
     [SerializeField] private GameObject _questReward;
+    [SerializeField] private UnityEvent _completionEvent;
 
     private void Start()
     {
@@ -62,6 +64,8 @@ public class NPCinteraction : MonoBehaviour, IInteractable
 
         //change to post text
         _dialogue.SwitchDialogue(Dialogue.DialogueType.Post);
+
+        _completionEvent?.Invoke();
     }
 
     public void ResetCams()
