@@ -8,6 +8,10 @@ public class ButtonMover : MonoBehaviour
 
     public void MoveButtonsDown()
     {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.layer = 0;
+        }
         StartCoroutine(MoveRoutine());
     }
 

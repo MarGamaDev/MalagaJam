@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     float jumpForce;
-    bool readyToJump = true;
 
     //Groundcheck
     [SerializeField]
@@ -31,10 +30,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 _newVelocity;
 
     private Rigidbody rb;
-    private float multiplier = 20;
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+
+    [SerializeField] private float _coyoteTimeInSeconds = 0.2f;
+    private float _coyoteTimer = 0f;
 
     private void OnEnable()
     {
@@ -71,7 +72,7 @@ public class PlayerController : MonoBehaviour
             UpdateAnimator();
             GroundCheck();
 
-            if (_playerInput.PlayerMap.Jump.ReadValue<float>() == 1 && isGrounded && readyToJump)
+            if (_playerInput.PlayerMap.Jump.IsPressed() && isGrounded)
             {
                 Jump();
             }
@@ -118,6 +119,7 @@ public class PlayerController : MonoBehaviour
     private void InteractWithEnvironment()
     {
         Collider[] nearbyColliders = Physics.OverlapSphere(transform.position, _interactRadius, _interactableMask);
+
         Collider closest = new Collider();
         float distance = 200f;
         foreach (Collider collider in nearbyColliders)
@@ -129,12 +131,13 @@ public class PlayerController : MonoBehaviour
                 distance = distanceToCollider;
             }
         }
+
         if(nearbyColliders.Length <= 0) 
         {
             return; 
         }
 
-        closest.GetComponent<IInteractable>().Interact();
+        closest.GetComponent<IInteractable>()?.Interact();
 
     }
 
@@ -150,18 +153,11 @@ public class PlayerController : MonoBehaviour
         _newVelocity = new Vector3(_inputVector.x * movementSpeed, rb.velocity.y, _inputVector.y * movementSpeed);
     }
 
-
-
     #region jump
     void Jump()
     {
-        readyToJump = false;
+        isGrounded = false;
         _newVelocity.y = jumpForce;
-        Invoke("ReadyToJump", 0.1f);
-    }
-    void ReadyToJump()
-    {
-        readyToJump = true;
     }
 
     void GroundCheck()
@@ -173,7 +169,15 @@ public class PlayerController : MonoBehaviour
         }
         else 
         {
-            isGrounded = false;
+            if (isGrounded && _coyoteTimer < _coyoteTimeInSeconds)
+            {
+                _coyoteTimer += Time.deltaTime;
+            }
+            else
+            {
+                isGrounded = false;
+                _coyoteTimer = 0;
+            }
         }
     }
 
