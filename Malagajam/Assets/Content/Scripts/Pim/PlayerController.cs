@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _coyoteTimeInSeconds = 0.2f;
     private float _coyoteTimer = 0f;
 
+    [SerializeField] private AudioSource _walkAudio, _jumpAudio;
+    [SerializeField] private List<AudioClip> _walkClips = new List<AudioClip>();
+
     private void OnEnable()
     {
         _playerInput.PlayerMap.Enable();    
@@ -70,6 +73,10 @@ public class PlayerController : MonoBehaviour
         {
             GetInput();
             UpdateAnimator();
+            if (_inputVector.magnitude > 0 && !_walkAudio.isPlaying)
+            {
+                _walkAudio?.PlayOneShot(_walkClips[Random.Range(0, _walkClips.Count)]);
+            }
             GroundCheck();
 
             if (_playerInput.PlayerMap.Jump.IsPressed() && isGrounded)
@@ -157,6 +164,7 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         isGrounded = false;
+        _jumpAudio?.Play();
         _newVelocity.y = jumpForce;
     }
 

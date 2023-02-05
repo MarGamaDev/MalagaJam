@@ -8,7 +8,15 @@ using UnityEngine.Events;
 
 public class Dialogue : MonoBehaviour
 {
-    public string name;
+    public enum DialogueType
+    {
+        Base,
+        Quest,
+        Post
+    }
+    public DialogueType _dialogueType = DialogueType.Base;
+
+    public string Name;
 
     public GameManager _GameManager;
 
@@ -21,6 +29,8 @@ public class Dialogue : MonoBehaviour
     //[TextArea(0, 10)]
     //public string[] sentances;
     [SerializeField] private DialogueObject baseDialogue;
+    [SerializeField] private DialogueObject questDialogue;
+    [SerializeField] private DialogueObject postDialogue;
     private DialogueObject currentDialogue;
 
     public GameObject dialoguecontroller;
@@ -60,7 +70,6 @@ public class Dialogue : MonoBehaviour
             StartCoroutine(TypeSentance(currentDialogue.Sentences[currentIndex]));
 
         }
-
     }
 
     void InitiateText()
@@ -69,7 +78,7 @@ public class Dialogue : MonoBehaviour
         textActive = true;
         dialoguecontroller.transform.position = new Vector3(dialoguecontroller.transform.position.x, dialoguecontroller.transform.position.y + 500);
 
-        nameText.text = name;
+        nameText.text = Name;
         StartCoroutine(TypeSentance(currentDialogue.Sentences[currentIndex]));
     }
 
@@ -93,9 +102,20 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    public void SwitchDialogue(DialogueObject newDialogue)
+    public void SwitchDialogue(DialogueType dialogueType)
     {
-        currentDialogue = newDialogue;
+        _dialogueType = dialogueType;
+        switch (_dialogueType)
+        {
+            case DialogueType.Base:
+                break;
+            case DialogueType.Quest:
+                break;
+            case DialogueType.Post:
+                break;
+            default:
+                break;
+        }
     }
 
     //void AmmanitaText()

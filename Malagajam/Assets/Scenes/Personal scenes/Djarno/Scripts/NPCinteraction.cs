@@ -30,7 +30,7 @@ public class NPCinteraction : MonoBehaviour, IInteractable
                 questDone = false;
             }
         }
-        if (questDone) { _dialogue.SwitchDialogue(_questDialogue); }
+        //if (questDone) { _dialogue.SwitchDialogue(_questDialogue); }
 
         if (!_dialogue.textActive)
         {
