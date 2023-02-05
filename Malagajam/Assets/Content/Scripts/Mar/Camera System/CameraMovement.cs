@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    public bool _doBehaviour = true;
     [SerializeField] private LevelCameraBox _currentCamBox;
     [SerializeField] private Transform _followTarget;
 
     [SerializeField] private float _distanceFromTarget;
+    private Quaternion _startRotation;
 
     private void Update()
     {
-        if (_currentCamBox)
+        if (_doBehaviour && _currentCamBox)
         {
+            transform.rotation = _startRotation;
             Vector3 wantedPosition = GetWantedPosition();
             transform.position = ClampPositionInBox(wantedPosition);
         }

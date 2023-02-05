@@ -6,13 +6,13 @@ using UnityEngine;
 public class ItemPickupScript : MonoBehaviour
 {
 
-    [SerializeField] private float spinspeed = 0.5f;
+    //[SerializeField] private float spinspeed = 0.5f;
     [SerializeField] private string _itemName;
     // Update is called once per frame
     void Update()
     {
         //Makes the item spin
-        transform.Rotate(0f, spinspeed, 0f, Space.Self);
+        //transform.Rotate(0f, spinspeed, 0f, Space.Self);
     }
 
     private void OnTriggerEnter(Collider collider)
