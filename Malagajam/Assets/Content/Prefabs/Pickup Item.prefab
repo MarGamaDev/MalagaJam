@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1545061503104137554}
   - component: {fileID: 1545061503104137565}
   - component: {fileID: 4397974751672414611}
+  - component: {fileID: 839113252129221130}
+  - component: {fileID: 839113252129221129}
   m_Layer: 7
   m_Name: Pickup Item
   m_TagString: Untagged
@@ -46,8 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afaab60628b79094bb3e7a9dcb57c758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinspeed: 0.5
-  _itemName: Test
+  spinspeed: 0
+  _itemName: Beetle
 --- !u!135 &4397974751672414611
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -60,6 +62,35 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &839113252129221130
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545061503104137558}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!135 &839113252129221129
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545061503104137558}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.28
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4499403951009186687
 GameObject:
@@ -148,7 +179,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4aa3ea6fe138ffe45b25132eb3daba55, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf72ca3625865ac4fbbbcf043a65b14f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
