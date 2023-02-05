@@ -11,6 +11,11 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float _distanceFromTarget;
     private Quaternion _startRotation;
 
+    private void Awake()
+    {
+        _startRotation = transform.rotation;
+    }
+
     private void Update()
     {
         if (_doBehaviour && _currentCamBox)

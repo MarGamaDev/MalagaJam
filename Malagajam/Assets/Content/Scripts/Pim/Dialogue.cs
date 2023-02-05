@@ -67,7 +67,7 @@ public class Dialogue : MonoBehaviour
         {
             currentIndex++;
             StopAllCoroutines();
-            StartCoroutine(TypeSentance(_currentDialogue.Sentences[currentIndex]));
+            StartCoroutine(TypeSentence(_currentDialogue.Sentences[currentIndex]));
 
         }
     }
@@ -77,21 +77,22 @@ public class Dialogue : MonoBehaviour
         StopAllCoroutines();
         playerMovement.movementEnabled = false;
         textActive = true;
-        dialoguecontroller.active = true;
+        dialoguecontroller.SetActive(true);
 
         nameText.text = Name;
-        StartCoroutine(TypeSentance(_currentDialogue.Sentences[currentIndex]));
+        StartCoroutine(TypeSentence(_currentDialogue.Sentences[currentIndex]));
     }
 
     void RemoveText()
     {
+        currentIndex = 0;
         playerMovement.movementEnabled = true;
         textActive = false;
         EndOfDialogueEvent?.Invoke();
-        dialoguecontroller.active = false;
+        dialoguecontroller.SetActive(false);
     }
 
-    IEnumerator TypeSentance(string sentance)
+    IEnumerator TypeSentence(string sentance)
     {
         text.text = "";
         foreach(char letter in sentance.ToCharArray())
@@ -109,6 +110,7 @@ public class Dialogue : MonoBehaviour
     public void SwitchDialogue(DialogueType dialogueType)
     {
         this.dialogueType = dialogueType;
+        Debug.Log("switching dialogue to " + (int)dialogueType);
         switch (this.dialogueType)
         {
             case DialogueType.Base:
