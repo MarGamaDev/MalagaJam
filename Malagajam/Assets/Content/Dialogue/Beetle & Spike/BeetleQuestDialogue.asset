@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: BeetleQuestDialogue
   m_EditorClassIdentifier: 
   Sentences:
-  - ' i have an  idea! ill trade you my growth orb  for that golden beetle! '
-  - 
-  - 
+  - Goodness! You acctually managed to do it!  Heres he growth orb as promised!
   - 
