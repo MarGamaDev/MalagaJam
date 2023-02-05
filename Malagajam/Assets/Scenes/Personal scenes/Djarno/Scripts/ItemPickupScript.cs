@@ -23,4 +23,9 @@ public class ItemPickupScript : MonoBehaviour
             GameManager.Instance.AddItemToList(_itemName);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GetComponent<Rigidbody>().isKinematic = true;
+    }
 }
