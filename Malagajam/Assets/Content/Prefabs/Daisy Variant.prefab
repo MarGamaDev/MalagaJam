@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &369820092819540968
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2587651135843176396, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: CamNPC0
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176396, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: _dialogueChangeItemConditions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176396, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: _dialogueChangeItemConditions.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176399, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176399, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176399, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176399, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -23.005333
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176399, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176399, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176399, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176399, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176399, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176399, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176399, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176402, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: m_Name
+      value: Daisy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176403, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176403, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176403, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: _GameManager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176403, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: _baseDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: e3508d941bd543b47a3eaabb61d29021, type: 2}
+    - target: {fileID: 2587651135843176403, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: _postDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 1091bce5408d2d1449deb5425c315c33, type: 2}
+    - target: {fileID: 2587651135843176403, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: _questDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 1cd9cff37f974714b91dd53b329164e9, type: 2}
+    - target: {fileID: 2587651135843176403, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651135843176403, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: dialoguecontroller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587651136880763738, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3d442348ed0fb5544836d393ed5a20c3, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8d1a68a604456f94082a9c7b739d9d71, type: 3}

@@ -10,8 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bbedfa36e3008e4f8260c16ae5e2d37, type: 3}
-  m_Name: BeetlePostDialogue
+  m_Name: WillowBaseDialogue
   m_EditorClassIdentifier: 
   Sentences:
-  - If you give me the golden beetle ill trade you a growth orb!
+  - Greetings little one, welcome to our village.
+  - My name is Willow, I am the caretaker of this land.
+  - ' Our tree is dying, and I need your help. '
+  - 'Whats your name?,, '
+  - Liko?
+  - Liko.  Collect the three Growth orbs, and then I'll be able to revive it.
   - 

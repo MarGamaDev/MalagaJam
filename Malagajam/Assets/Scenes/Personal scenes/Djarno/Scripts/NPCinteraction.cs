@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class NPCinteraction : MonoBehaviour, IInteractable
 {
-    private GameObject MainCamera;
-    public GameObject CamNPC0;
+    private CameraMovement _camMovement;
     private Dialogue _dialogue;
     private LookAtNpc _LookAtNPC;
     [SerializeField] private List<string> _dialogueChangeItemConditions;
@@ -14,9 +13,7 @@ public class NPCinteraction : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        MainCamera = Camera.main.gameObject;
-        MainCamera.SetActive(true);
-        CamNPC0.SetActive(false);
+        _camMovement = Camera.main.GetComponent<CameraMovement>();
         _dialogue = GetComponent<Dialogue>();
         _LookAtNPC = GetComponent<LookAtNpc>();
     }
@@ -27,11 +24,8 @@ public class NPCinteraction : MonoBehaviour, IInteractable
 
         if (!_dialogue.textActive)
         {
-            CamNPC0.transform.LookAt(_LookAtNPC.FindClosestTarget());
-            MainCamera.SetActive(false);
-            CamNPC0.SetActive(true);
-            Debug.Log("Turned MainCam OFF");
-            Debug.Log("Turned CamNPC0 ON");
+            Camera.main.transform.LookAt(_LookAtNPC.FindClosestTarget());
+            _camMovement._doBehaviour = false;
         }
 
         _dialogue.MoveThroughDialogue();
@@ -70,9 +64,6 @@ public class NPCinteraction : MonoBehaviour, IInteractable
 
     public void ResetCams()
     {
-        MainCamera.SetActive(true);
-        CamNPC0.SetActive(false);
-        Debug.Log("Turned MainCam ON");
-        Debug.Log("Turned CamNPC0 OFF");
+        _camMovement._doBehaviour = true;
     }
 }

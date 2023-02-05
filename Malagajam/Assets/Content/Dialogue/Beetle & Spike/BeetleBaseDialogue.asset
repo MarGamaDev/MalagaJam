@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bbedfa36e3008e4f8260c16ae5e2d37, type: 3}
   m_Name: BeetleBaseDialogue
   m_EditorClassIdentifier: 
-  Sentences: []
+  Sentences:
+  - Heya, have you heard about the puzzle in the dungeon?
+  - The legend says that whoever solves the puzzle.. will be gifter the Golden Beetle...
+  - 'I have an  idea! ill trade you my GROWTH ORB for that golden beetle! '
+  - 

@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bbedfa36e3008e4f8260c16ae5e2d37, type: 3}
-  m_Name: BeetlePostDialogue
+  m_Name: WillowQuestDialogue
   m_EditorClassIdentifier: 
   Sentences:
-  - If you give me the golden beetle ill trade you a growth orb!
+  - Greetings Liko...
+  - I see you've collected all the orbs. I am deeply grateful.
+  - Now i can revive our Tree, and we can live in peace again.
   - 
