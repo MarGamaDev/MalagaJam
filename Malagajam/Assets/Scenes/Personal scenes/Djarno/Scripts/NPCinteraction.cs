@@ -24,7 +24,9 @@ public class NPCinteraction : MonoBehaviour, IInteractable
 
         if (!_dialogue.textActive)
         {
-            Camera.main.transform.LookAt(_LookAtNPC.FindClosestTarget());
+            Transform camTarget = _LookAtNPC.FindClosestTarget();
+            Camera.main.transform.LookAt(camTarget);
+            Camera.main.transform.position = camTarget.position - Camera.main.transform.forward * 2;
             _camMovement._doBehaviour = false;
         }
 
