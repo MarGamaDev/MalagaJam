@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4344764504506189644, guid: 1fdf2941b94cab0479f3a0be2c5175fc, type: 3}
       propertyPath: _billboardType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6448296977902709858, guid: 1fdf2941b94cab0479f3a0be2c5175fc, type: 3}
       propertyPath: m_Name
@@ -236,7 +236,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4344764504506189644, guid: 1fdf2941b94cab0479f3a0be2c5175fc, type: 3}
       propertyPath: _billboardType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6448296977902709858, guid: 1fdf2941b94cab0479f3a0be2c5175fc, type: 3}
       propertyPath: m_Name
@@ -472,7 +472,7 @@ PrefabInstance:
     - target: {fileID: 5471701465520159118, guid: a244749c39aed3d40a951bbf3597998b, type: 3}
       propertyPath: CamNPC0
       value: 
-      objectReference: {fileID: 1346079798}
+      objectReference: {fileID: 0}
     - target: {fileID: 5471701465520159118, guid: a244749c39aed3d40a951bbf3597998b, type: 3}
       propertyPath: MainCamera
       value: 
@@ -804,7 +804,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2045623255}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 22.122, y: 0, z: 0}
 --- !u!114 &1133674158
 MonoBehaviour:
@@ -818,6 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcc454f4432c914381c19ff12366c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doBehaviour: 1
   _currentCamBox: {fileID: 1846567829}
   _followTarget: {fileID: 2045623255}
   _distanceFromTarget: 3
@@ -956,11 +957,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f6b410c62fcc422bba7005e6d844b54, type: 3}
---- !u!1 &1346079798 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 577057522, guid: 34b3247ce2411e0439f815bd15eed862, type: 3}
-  m_PrefabInstance: {fileID: 2079116991}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1400035015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,7 +1289,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4344764504506189644, guid: 1fdf2941b94cab0479f3a0be2c5175fc, type: 3}
       propertyPath: _billboardType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6448296977902709858, guid: 1fdf2941b94cab0479f3a0be2c5175fc, type: 3}
       propertyPath: m_Name
