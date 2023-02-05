@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.07792097, g: 0.13310677, b: 0.16624327, a: 1}
+  m_IndirectSpecularColor: {r: 0.07794129, g: 0.13307934, b: 0.1661676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -607,6 +607,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: plantje (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4185233700988556513, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d673674b03d048ff924da822f092096, type: 2}
+    - target: {fileID: 7906548303480452776, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 982502e937cb74275b7444059bdfd5dd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
 --- !u!4 &61998271 stripped
@@ -1043,6 +1051,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: plantje
       objectReference: {fileID: 0}
+    - target: {fileID: 4185233700988556513, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d673674b03d048ff924da822f092096, type: 2}
+    - target: {fileID: 7906548303480452776, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 982502e937cb74275b7444059bdfd5dd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
 --- !u!4 &125839722 stripped
@@ -3845,6 +3861,11 @@ Transform:
   m_Father: {fileID: 34394232}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &283725359 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 283725359, guid: 34b3247ce2411e0439f815bd15eed862, type: 3}
+  m_PrefabInstance: {fileID: 2068073246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &300483152
 GameObject:
   m_ObjectHideFlags: 0
@@ -4680,6 +4701,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: plantje (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4185233700988556513, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d673674b03d048ff924da822f092096, type: 2}
+    - target: {fileID: 7906548303480452776, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 982502e937cb74275b7444059bdfd5dd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
 --- !u!4 &335829156 stripped
@@ -4946,6 +4975,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: plantje (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4185233700988556513, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d673674b03d048ff924da822f092096, type: 2}
+    - target: {fileID: 7906548303480452776, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 982502e937cb74275b7444059bdfd5dd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
 --- !u!4 &341256005 stripped
@@ -9385,6 +9422,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: plantje (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4185233700988556513, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d673674b03d048ff924da822f092096, type: 2}
+    - target: {fileID: 7906548303480452776, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 982502e937cb74275b7444059bdfd5dd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
 --- !u!4 &772592450 stripped
@@ -10958,6 +11003,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: plantje (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4185233700988556513, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d673674b03d048ff924da822f092096, type: 2}
+    - target: {fileID: 7906548303480452776, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 982502e937cb74275b7444059bdfd5dd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
 --- !u!4 &916865997 stripped
@@ -11211,6 +11264,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: plantje (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4185233700988556513, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d673674b03d048ff924da822f092096, type: 2}
+    - target: {fileID: 7906548303480452776, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 982502e937cb74275b7444059bdfd5dd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
 --- !u!4 &969160153 stripped
@@ -11481,7 +11542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doBehaviour: 1
   _currentCamBox: {fileID: 232524058}
-  _followTarget: {fileID: 2124400964}
+  _followTarget: {fileID: 283725359}
   _distanceFromTarget: 4
 --- !u!1001 &981600057
 PrefabInstance:
@@ -12210,6 +12271,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: plantje (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4185233700988556513, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d673674b03d048ff924da822f092096, type: 2}
+    - target: {fileID: 7906548303480452776, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 982502e937cb74275b7444059bdfd5dd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
 --- !u!4 &1031317913 stripped
@@ -13638,6 +13707,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: plantje (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4185233700988556513, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d673674b03d048ff924da822f092096, type: 2}
+    - target: {fileID: 7906548303480452776, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 982502e937cb74275b7444059bdfd5dd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
 --- !u!4 &1142741486 stripped
@@ -15863,6 +15940,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: plantje (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4185233700988556513, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d673674b03d048ff924da822f092096, type: 2}
+    - target: {fileID: 7906548303480452776, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 982502e937cb74275b7444059bdfd5dd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
 --- !u!4 &1294682916 stripped
@@ -18916,6 +19001,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: plantje (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4185233700988556513, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d673674b03d048ff924da822f092096, type: 2}
+    - target: {fileID: 7906548303480452776, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 982502e937cb74275b7444059bdfd5dd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
 --- !u!4 &1568527277 stripped
@@ -24064,13 +24157,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 577057523, guid: 34b3247ce2411e0439f815bd15eed862, type: 3}
+    - target: {fileID: 283725359, guid: 34b3247ce2411e0439f815bd15eed862, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 577057523, guid: 34b3247ce2411e0439f815bd15eed862, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.13
+      value: 0.486
       objectReference: {fileID: 0}
     - target: {fileID: 6789403161398578571, guid: 34b3247ce2411e0439f815bd15eed862, type: 3}
       propertyPath: m_RootOrder
@@ -25299,6 +25388,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: plantje (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4185233700988556513, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d673674b03d048ff924da822f092096, type: 2}
+    - target: {fileID: 7906548303480452776, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 982502e937cb74275b7444059bdfd5dd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67262bcf3d0448078061e22d3d1f858, type: 3}
 --- !u!4 &2121793946 stripped
@@ -28422,7 +28519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &4081016072369237612
 AudioSource:
   m_ObjectHideFlags: 0
