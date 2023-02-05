@@ -58,7 +58,7 @@ public class Dialogue : MonoBehaviour
 
     void ChangeSentence()
     {
-        if (_currentDialogue.Sentences[currentIndex] == null || _currentDialogue.Sentences[currentIndex + 1] == "")
+        if (_currentDialogue.Sentences[currentIndex] == null || _currentDialogue.Sentences[currentIndex + 1] == "" || _currentDialogue.Sentences[currentIndex] == "")
         {
             RemoveText();
 
@@ -74,6 +74,7 @@ public class Dialogue : MonoBehaviour
 
     void InitiateText()
     {
+        StopAllCoroutines();
         playerMovement.movementEnabled = false;
         textActive = true;
         dialoguecontroller.active = true;
