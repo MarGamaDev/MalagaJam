@@ -104,6 +104,7 @@ public class Dialogue : MonoBehaviour
             yield return null;
             yield return null;
         }
+        _talkAudio.Stop();
     }
 
     public void SwitchDialogue(DialogueType dialogueType)
