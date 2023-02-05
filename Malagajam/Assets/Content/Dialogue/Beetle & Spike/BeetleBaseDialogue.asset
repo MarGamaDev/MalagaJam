@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BeetleBaseDialogue
   m_EditorClassIdentifier: 
   Sentences:
-  - "Hi there little fella. Spike lost his golden friend and can\u2019t seem to find
-    it anywhere. "
-  - If you find and retrieve it for us, we will give you a reward.
+  - Heya, have you heard about the puzzle in the dungeon? The legend says that whoever
+    solves the puzzle.. will be gifter the Golden Beetle...
+  - 
   - 
