@@ -1110,7 +1110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentOrientation: 0
-  _targetOrientation: 2
+  _targetOrientation: 1
   _timeToSpin: 1
   _offsetWhenSpinning: 1
   _timeToOffsetInSeconds: 0.5
@@ -12056,7 +12056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentOrientation: 0
-  _targetOrientation: 1
+  _targetOrientation: 2
   _timeToSpin: 1
   _offsetWhenSpinning: 1
   _timeToOffsetInSeconds: 0.5
@@ -12408,9 +12408,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: DropShadow
       objectReference: {fileID: 0}
+    - target: {fileID: 2759179984222852632, guid: 8eca1b5819a97ca4d8d8e07d6c3a10dd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2759179984222852633, guid: 8eca1b5819a97ca4d8d8e07d6c3a10dd, type: 3}
       propertyPath: m_RootOrder
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759179984222852633, guid: 8eca1b5819a97ca4d8d8e07d6c3a10dd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759179984222852633, guid: 8eca1b5819a97ca4d8d8e07d6c3a10dd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2759179984222852633, guid: 8eca1b5819a97ca4d8d8e07d6c3a10dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12418,7 +12430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2759179984222852633, guid: 8eca1b5819a97ca4d8d8e07d6c3a10dd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5699999
+      value: 0.704
       objectReference: {fileID: 0}
     - target: {fileID: 2759179984222852633, guid: 8eca1b5819a97ca4d8d8e07d6c3a10dd, type: 3}
       propertyPath: m_LocalPosition.z

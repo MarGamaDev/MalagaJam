@@ -19,14 +19,12 @@ public class DropShadow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {    
-        transform.position = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
-    }
-    private void FixedUpdate()
-    {
-        if (Physics.Raycast(transform.position, -transform.up, 10, groundLayer))
+        if (Physics.Raycast(player.position, -transform.up, out RaycastHit hit, 10, groundLayer))
         {
             meshRenderer.enabled = true;
+            transform.position = hit.point;
+            return;
         }
-        else meshRenderer.enabled = false;
+        meshRenderer.enabled = false;
     }
 }
